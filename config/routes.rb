@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  get '/ui', to: 'ui#index'
+  root to: 'ui#directory'
+  get 'ui', to: 'ui#directory'
+  get 'ui(/:action)', controller: 'ui'
 end
