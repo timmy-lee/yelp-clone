@@ -9,6 +9,7 @@ User.create!([
   {username: "MeowMashiro", full_name: "Timmy Lee", password_digest: "$2a$10$gBVkTbeqTgWTFYGZ3QIZyeKiPfIMmGszH1MA8O4vZtFkkurLqMu9C"},
   {username: "Klaziki", full_name: "Lily Lee", password_digest: "$2a$10$jH.djgBpbk1E/ar85suC6ebTIU4TVpQG.wtLNxWtOPT6phohr9UFC"}
 ])
+
 Review.create!([
   {user_id: 1, business_id: 1, content: "Decent coffee at best..", rating: 3},
   {user_id: 1, business_id: 1, content: "Good iced teas!", rating: 4},
