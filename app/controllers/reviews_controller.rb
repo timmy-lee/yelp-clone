@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   def new
     if current_user
-      # @business = Business.find(params[:business_id])
+      @business = Business.find(params[:business_id])
       @review = Review.new
     else
       redirect_to sign_in_path, flash: { error: 'You must be signed in to do that' }
