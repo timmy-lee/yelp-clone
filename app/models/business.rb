@@ -10,7 +10,7 @@ class Business < ActiveRecord::Base
 
   def average_ratings
     total = 0
-    if !reviews.empty?
+    if reviews.any?
       reviews.each do |review|
         total += review.rating
       end

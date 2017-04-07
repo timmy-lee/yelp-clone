@@ -46,7 +46,7 @@ module ApplicationHelper
   end
 
   def pluralize_reviews(count)
-    count.to_s + (count == 1 ? ' review' : ' reviews')
+    count.to_s + ' review'.pluralize(count)
   end
 
   def stars_class_name(num)
