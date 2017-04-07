@@ -1,0 +1,16 @@
+<%= form_for(@review, url: {action: 'create'}) do |f| %>
+  <h2>Give your review for <%= link_to "#{@business.name}", business_path(@business.id) %>:</h2>
+  <div class="form-group">
+    <div>
+      <%= f.label(:rating, "Rating:") %>
+    </div>
+    <%= f.select(:rating, rating_options, {}, class: "form-control") %>
+  </div>
+  <div class="form-group">
+    <%= f.label(:content, "Review Details:") %>
+    <%= f.text_area(:content, rows: '6', class: "form-control") %>
+    <p class="error_msg"><%= @review.errors[:content].first if !@review.errors.empty? %></p>
+  </div>
+  <%= f.submit("Add review", class: "btn btn-default submit_button") %>
+  <%= link_to "Cancel", business_path(@business.id), class: "btn btn-default" %>
+<% end %>

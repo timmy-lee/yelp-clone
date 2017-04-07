@@ -1,0 +1,60 @@
+<%= form_for @business do |f| %>
+  <h2>Add a Business</h2>
+  <i>* Required fields</i>
+  <div class="form-group">
+    <%= f.label(:name, "Business Name:*") %>
+    <%= f.text_field(:name, class: "form-control") %>
+    <p class="error_msg"><%= @business.errors[:name][0] if !@business.errors.empty? %></p>
+  </div>
+  <h2>Location</h2>
+  <div class="form-group">
+    <%= f.label(:street, "Street address:*") %>
+    <%= f.text_field(:street, class: "form-control") %>
+    <p class="error_msg"><%= @business.errors[:street][0] if !@business.errors.empty? %></p>
+  </div>
+  <div class="form-group">
+    <%= f.label(:neighborhood, "Neighborhood:") %>
+    <%= f.text_field(:neighborhood, class: "form-control") %>
+  </div>
+  <div class="row">
+    <div class="form-group col-xs-7">
+      <%= f.label(:city, "City:*") %>
+      <%= f.text_field(:city, class: "form-control") %>
+      <p class="error_msg"><%= @business.errors[:city][0] if !@business.errors.empty? %></p>
+    </div>
+    <div class="form-group col-xs-2">
+      <%= f.label(:state, "State:*") %>
+      <%= f.text_field(:state, class: "form-control") %>
+      <p class="error_msg"><%= @business.errors[:state][0] if !@business.errors.empty? %></p>
+    </div>
+    <div class="form-group col-xs-3">
+      <%= f.label(:zipcode, "Zipcode:*") %>
+      <%= f.text_field(:zipcode, class: "form-control") %>
+      <p class="error_msg"><%= @business.errors[:zipcode][0] if !@business.errors.empty? %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-sm-8">
+      <%= f.label(:phone, "Phone Number:*") %>
+      <%= f.text_field(:phone, class: "form-control") %>
+      <p class="error_msg"><%= @business.errors[:phone][0] if !@business.errors.empty? %></p>
+    </div>
+    <div class="form-group col-sm-4">
+      <%= f.label(:price, "Price range:*") %>
+      <%= f.select(:price, pricing_options, {}, class: "form-control") %>
+    </div>
+  </div>
+  <% days_of_week.each do |day| %>
+    <div class="row">
+      <div class="col-xs-6 open_time">
+        <%= f.label("#{day}_hr".to_sym, "#{day.capitalize} opens at:") %>
+        <%= f.select("#{day}_hr".to_sym, time_options, {},  class: "form-control" ) %>
+      </div>
+      <div class="col-xs-6 open_time">
+        <%= f.label("#{day}_closing_hr", "#{day.capitalize} closes at:") %>
+        <%= f.select("#{day}_closing_hr", time_options, {},  class: "form-control" ) %>
+      </div>
+    </div>
+  <% end %>
+  <%= f.submit("Add Business", class: "btn btn-default") %>
+<% end %>

@@ -1,7 +1,7 @@
-Restaurants in the index page should have:
+Businesses in the index page should have:
 * image
 * name
-* overall ratings
+* overall ratings(?) - belongs to another model maybe?
   * number of reviews
 * Pricing
 * Description?(Or last review left?)
@@ -15,5 +15,5 @@ Restaurants in the index page should have:
 
 *Category?*
 
-Restaurants in the detail view should have (in addition to above):
+Businesses in the detail view should have (in addition to above):
 * hours
