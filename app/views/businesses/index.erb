@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="last_review">
-        <% if !business.reviews.empty? %>
+        <% if business.reviews.any? %>
           <% random_review = business.reviews.sample %>
           <%= link_to(image_tag("http://lorempixel.com/40/40/people"), user_path(random_review.user.id), class: "user_avatar", title: random_review.user.full_name) %>
           <span><%= random_review.content.first(260) %></span>
