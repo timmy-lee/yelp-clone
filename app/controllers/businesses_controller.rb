@@ -12,9 +12,10 @@ class BusinessesController < ApplicationController
   def create
     @business = Business.new(params.require(:business).permit!)
     if @business.save
+      flash[:notice] = 'This business was added successfully'
       redirect_to(businesses_path)
     else
-      render :new, flash: { success: 'This business was successfully added'}
+      render :new
     end
   end
 

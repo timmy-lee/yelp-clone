@@ -15,7 +15,7 @@
         <div class="review_details col-md-9">
           <h2><%= link_to review.business.name, business_path(review.business.id)%></h2>
           <span class="stars stars_<%= review.rating %>_small"></span>
-          <span class="date"><%= review.created_at %></span>
+          <span class="date"><%= format_time(review.created_at) %></span>
           <% split_paragraphs(review.content).each do |paragraph| %>
             <p class="content_paragraph"><%= paragraph %></p>
           <% end %>

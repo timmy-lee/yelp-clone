@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'ui#directory'
+  root to: 'businesses#index'
   get 'ui', to: 'ui#directory'
   get 'ui/:action', controller: 'ui'
 

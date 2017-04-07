@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
     if current_user
       @review = Review.new(params.require(:review).permit!.merge!({user_id: current_user.id, business_id: @business.id}))
       if @review.save
-        redirect_to business_path(params[:business_id]), flash: {notice: 'This business was successfully added.'}
+        redirect_to business_path(params[:business_id]), flash: {notice: 'Your review was successfully added.'}
       else
         render :new, flash: { error: 'Please fix the fields below.' }
       end
