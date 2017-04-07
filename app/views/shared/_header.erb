@@ -1,13 +1,21 @@
 <div id="header">
   <img class="main_logo" src="/images/yelp_logo.png" />
-  <a href="#" class="btn btn-primary">Sign Up</a>
+  <% if current_user %>
+    <%= link_to("Hello, #{current_user.full_name}!", user_path(current_user.id), class: "btn btn-default") %>
+  <% else %>
+    <%= link_to("Register now!", register_path, class: "btn btn-default") %>
+  <% end %>
 </div>
 
 <nav>
   <ul>
-    <li><a href="#">Businesses</a></li>
-    <li><a href="#">Add a business</a></li>
-    <li><a href="#">Recent Reviews</a></li>
-    <li><a href="#">Log In</a></li>
+    <li><%= link_to("Businesses", businesses_path) %></li>
+    <li><%= link_to("Add a business", new_business_path) %></li>
+    <li><%= link_to("Recent Reviews", reviews_recent_path) %></li>
+    <% if current_user %>
+      <li><%= link_to("Log Out", sign_out_path) %></li>
+    <% else %>
+      <li><%= link_to("Log In", sign_in_path) %></li>
+    <% end %>
   </ul>
 </nav>

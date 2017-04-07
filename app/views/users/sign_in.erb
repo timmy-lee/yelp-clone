@@ -1,0 +1,11 @@
+<%= form_tag({controller: "sessions", action: "create"}, method: "post", id: "sign_in") do %>
+  <div class="form-group">
+    <%= label_tag(:username, "Username:") %>
+    <%= text_field_tag(:username, "", class: "form-control") %>
+  </div>
+  <div class="form-group">
+    <%= label_tag(:password, "Password:") %>
+    <%= password_field_tag(:password, "", class: "form-control") %>
+  </div>
+  <%= submit_tag("Log In", class: "btn btn-default") %>
+<% end %>

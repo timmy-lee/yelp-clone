@@ -1,0 +1,35 @@
+<section id="profile">
+  <div id="header">
+    <img src="https://placehold.it/215x215" />
+    <div id="user_details">
+      <h1><%= @user.full_name %></h1>
+      <p><span><%= @user.reviews.count %></span> Reviews</p>
+      <p>Yelping since <%= format_time(@user.created_at) %></p>
+    </div>
+  </div>
+
+  <ul id="reviews">
+    <% @reviews.each do |review| %>
+      <li>
+        <img src="https://placehold.it/60x60" />
+        <div class="business">
+          <h2><%= link_to review.business.name, business_path(review.business.id) %></h2>
+          <span><%= review.business.price %></span>
+          <p><%= review.business.street %></p>
+          <p><%= "#{review.business.city}, #{review.business.state} #{review.business.zipcode}" %></p>
+        </div>
+        <div class="review">
+          <p>
+            <span class="stars stars_<%= stars_class_name(review.rating) %>_medium"></span>
+            <span class="date"><%= format_time(review.created_at) %></span>
+          </p>
+
+          <% split_paragraphs(review.content).each do |paragraph| %>
+            <p class="content_paragraph"><%= paragraph %></p>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+
+</section>

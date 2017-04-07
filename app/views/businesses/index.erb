@@ -1,0 +1,34 @@
+<section id="restaurants">
+  <% @businesses.each_with_index do |business, index| %>
+    <div class="restaurant">
+      <div class="main_info">
+        <img src="http://lorempixel.com/90/90/food/<%= index %>" class="restaurant_image"/>
+        <div class="sub_info">
+          <h2><%= link_to "#{index + 1}. #{business.name}", business_path(business.id) %></h2>
+          <span class="stars stars_<%= stars_class_name(business.average_ratings) %>_medium"></span>
+          <span class="total_reviews"><%= pluralize_reviews(business.reviews.count) %></span>
+          <p><%= business.price %></p>
+        </div>
+
+        <div class="address">
+          <p class="neighborhood"><%= business.neighborhood %></p>
+          <p class="address_street"><%= business.street %></p>
+          <p class="address_city"><%= "#{business.city}, #{business.state}, #{business.zipcode}" %></p>
+          <p class="phone_number"><%= business.phone %></p>
+        </div>
+      </div>
+      <div class="last_review">
+        <% if !business.reviews.empty? %>
+          <% random_review = business.reviews.sample %>
+          <%= link_to(image_tag("http://lorempixel.com/40/40/people"), user_path(random_review.user.id), class: "user_avatar", title: random_review.user.full_name) %>
+          <span><%= random_review.content.first(260) %></span>
+          <% if random_review.content.length > 260 %>
+            ... <%= link_to "read more", business_path(business.id) %>
+          <% end %>
+        <% else %>
+          <p>There are no reviews yet.. Be the first to <%= link_to "write a review!", new_business_review_path(business.id) %></p>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</section>

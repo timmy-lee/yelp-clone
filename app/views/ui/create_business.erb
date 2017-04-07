@@ -10,6 +10,10 @@
     <label for="street_address">Address:</label>
     <input type="text" name="street_address" id="street_address" class="form-control" />
   </div>
+  <div class="form-group">
+    <label for="neighborhood">Neighborhood:</label>
+    <input type="text" name="neighborhood" id="neighborhood" class="form-control" />
+  </div>
   <div class="row">
     <div class="col-xs-7">
       <label for="city">City:</label>
@@ -28,5 +32,87 @@
     <label for="phone">Phone Number:</label>
     <input type="text" name="phone" id="phone" class="form-control" />
   </div>
+
+  <% week = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'] %>
+  <% week.each do |day| %>
+  <div class="row" id="<%= day %>_hr">
+    <div class="col-xs-6 open_time">
+      <h4><%= day.capitalize %></h4>
+      <label>Opens at:</label>
+      <select class="form-control" id="<%= day %>_opening_hr">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+      </select>
+      <select class="form-control" id="<%= day %>_opening_minute">
+        <option>00</option>
+        <option>05</option>
+        <option>10</option>
+        <option>15</option>
+        <option>20</option>
+        <option>25</option>
+        <option>30</option>
+        <option>35</option>
+        <option>40</option>
+        <option>45</option>
+        <option>50</option>
+        <option>55</option>
+      </select>
+      <select class="form-control" id="<%= day %>_opening_ampm">
+        <option>AM</option>
+        <option>PM</option>
+      </select>
+      <label>
+        <input type="checkbox" id="<%= day %>_closed" /> Check here if closed
+      </label>
+    </div>
+
+    <div class="col-xs-6 close_time">
+      <h4><%= day.capitalize %></h4>
+      <label>Closes at:</label>
+      <select class="form-control" id="<%= day %>_closing_hr">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+      </select>
+      <select class="form-control" id="<%= day %>_closing_minute">
+        <option>00</option>
+        <option>05</option>
+        <option>10</option>
+        <option>15</option>
+        <option>20</option>
+        <option>25</option>
+        <option>30</option>
+        <option>35</option>
+        <option>40</option>
+        <option>45</option>
+        <option>50</option>
+        <option>55</option>
+      </select>
+      <select class="form-control" id="<%= day %>_closing_ampm">
+        <option>AM</option>
+        <option>PM</option>
+      </select>
+    </div>
+  </div>
+  <% end %>
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
