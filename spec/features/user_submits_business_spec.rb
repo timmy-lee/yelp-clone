@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'user submits a review', type: :feature do
+feature 'user submits a business', type: :feature do
   scenario 'with valid inputs' do
     lily = Fabricate(:user)
     visit sign_in_path
@@ -18,6 +18,6 @@ feature 'user submits a review', type: :feature do
     click_button 'Add Business'
     expect(page).to have_content("This business was added successfully")
 
-    Percy::Capybara.snapshot(page, name: 'adding a business')
+    Percy::Capybara.snapshot(page, name: 'submitting a business')
   end
 end

@@ -9,6 +9,8 @@ feature 'user registers' do
     fill_in 'Password Confirmation', with: 'password'
     click_button 'Register'
     expect(page).to have_content('You have successfully registered!')
+
+    Percy::Capybara.snapshot(page, name: 'user registers')
   end
 
   scenario 'with invalid input such as already-taken username' do
@@ -20,8 +22,9 @@ feature 'user registers' do
     fill_in 'Password Confirmation', with: 'password'
     click_button 'Register'
     expect(page).to have_content('has already been taken')
-  end
 
+    Percy::Capybara.snapshot(page, name: 'user registers with invalid username')
+  end
 end
 
 feature 'user signs in' do
@@ -33,7 +36,7 @@ feature 'user signs in' do
     click_button 'Log In'
     expect(page).to have_content("Hello, #{lily.full_name}")
 
-    Percy::Capybara.snapshot(page, name: 'homepage with dropdown')
+    Percy::Capybara.snapshot(page, name: 'user signs in')
   end
 
   scenario 'with invalid credentials' do
@@ -43,5 +46,7 @@ feature 'user signs in' do
     fill_in 'Password', with: lily.password + '1'
     click_button 'Log In'
     expect(page).to have_content("Your username or password was incorrect")
+
+    Percy::Capybara.snapshot(page, name: 'user tries to sign in')
   end
 end

@@ -15,5 +15,7 @@ feature 'user submits a review' do
     fill_in 'Review Details', with: 'Lorem Ipsum...'
     click_button 'Add review'
     expect(page).to have_content("Your review was successfully added")
+
+    Percy::Capybara.snapshot(page, name: 'adding a business')
   end
 end
