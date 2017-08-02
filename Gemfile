@@ -26,9 +26,6 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass'
-gem 'fabrication'
-gem 'faker'
-gem 'percy-capybara'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -56,4 +53,8 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'rails-controller-testing'
+  gem 'fabrication'
+  gem 'faker'
+  gem 'percy-capybara'
+  gem 'timecop'
 end

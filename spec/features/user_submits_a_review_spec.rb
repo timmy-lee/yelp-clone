@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 feature 'user submits a review' do
+  before { Timecop.freeze(Time.local(1990)) }
+
+  after { Timecop.return }
+
   scenario 'with valid inputs' do
     business = Fabricate(:business, {monday_hr: "Closed", tuesday_hr: "Closed", wednesday_hr: "Closed", thursday_hr: "Closed", friday_hr: "Closed", saturday_hr: "Closed", sunday_hr: "Closed", monday_closing_hr: "Closed", tuesday_closing_hr: "Closed", wednesday_closing_hr: "Closed", thursday_closing_hr: "Closed", friday_closing_hr: "Closed", saturday_closing_hr: "Closed", sunday_closing_hr: "Closed"})
     lily = Fabricate(:user)
@@ -16,6 +20,6 @@ feature 'user submits a review' do
     click_button 'Add review'
     expect(page).to have_content("Your review was successfully added")
 
-    Percy::Capybara.snapshot(page, name: 'adding a business')
+    Percy::Capybara.snapshot(page, name: 'adding a review')
   end
 end
