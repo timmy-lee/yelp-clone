@@ -32,6 +32,8 @@ feature 'user signs in' do
     fill_in 'Password', with: lily.password
     click_button 'Log In'
     expect(page).to have_content("Hello, #{lily.full_name}")
+
+    Percy::Capybara.snapshot(page, name: 'homepage with dropdown')
   end
 
   scenario 'with invalid credentials' do

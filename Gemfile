@@ -28,6 +28,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass'
 gem 'fabrication'
 gem 'faker'
+gem 'percy-capybara'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
