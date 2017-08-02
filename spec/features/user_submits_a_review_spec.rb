@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'user submits a review' do
-  before { Timecop.freeze(Time.local(1990)) }
+  before { Timecop.freeze(Time.local(2017)) }
 
   after { Timecop.return }
 
