@@ -2,7 +2,7 @@
   <% @businesses.each_with_index do |business, index| %>
     <div class="restaurant">
       <div class="main_info">
-        <img src="http://lorempixel.com/90/90/food/<%= index %>" class="restaurant_image"/>
+        <img src="http://placehold.it/90x90<%= index %>" class="restaurant_image"/>
         <div class="sub_info">
           <h2><%= link_to "#{index + 1}. #{business.name}", business_path(business.id) %></h2>
           <span class="stars stars_<%= stars_class_name(business.average_ratings) %>_medium"></span>
@@ -20,7 +20,7 @@
       <div class="last_review">
         <% if business.reviews.any? %>
           <% random_review = business.reviews.sample %>
-          <%= link_to(image_tag("http://lorempixel.com/40/40/people"), user_path(random_review.user.id), class: "user_avatar", title: random_review.user.full_name) %>
+          <%= link_to(image_tag("http://placehold.it/40x40"), user_path(random_review.user.id), class: "user_avatar", title: random_review.user.full_name) %>
           <span><%= random_review.content.first(260) %></span>
           <% if random_review.content.length > 260 %>
             ... <%= link_to "read more", business_path(business.id) %>
